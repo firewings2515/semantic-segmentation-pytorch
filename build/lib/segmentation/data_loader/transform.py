@@ -22,7 +22,6 @@ class Rescale(object):
 
     def __init__(self, output_size):
         assert isinstance(output_size, (int, tuple))
-        self.aspect_ratio = 3.0 / 4.0 
         self.output_size = output_size
 
     def __call__(self, sample):
@@ -31,15 +30,12 @@ class Rescale(object):
         h, w = image.shape[:2]
         if isinstance(self.output_size, int):
             if h > w:
-                cv2.rotate(labeled, cv2.ROTATE_90_CLOCKWISE)
-                cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
-            #     new_h, new_w = self.output_size * self.as, self.output_size
-            # else:
-            #     new_h, new_w = self.output_size, self.output_size * w / h
+                new_h, new_w = self.output_size * h / w, self.output_size
+            else:
+                new_h, new_w = self.output_size, self.output_size * w / h
         else:
             new_h, new_w = self.output_size
 
-        new_h, new_w = self.output_size * self.aspect_ratio, self.output_size
         new_h, new_w = int(new_h), int(new_w)
 
         img = cv2.resize(image, (new_w, new_h), interpolation=cv2.INTER_NEAREST)

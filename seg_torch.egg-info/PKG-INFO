@@ -1,3 +1,17 @@
+Metadata-Version: 2.1
+Name: seg-torch
+Version: 0.1.7
+Summary: Semantic Segmentation with Pytorch
+Home-page: https://github.com/IanTaehoonYoo/semantic-segmentation-pytorch
+Author: Ian Yoo
+Author-email: thyoostar@gmail.com
+License: MIT
+Platform: any
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Provides-Extra: tensorflow
+License-File: LICENSE
+
 # Semantic-Segmentation-Pytorch
 
 [![PyPI Version](https://img.shields.io/pypi/v/seg-torch.svg)](https://pypi.org/project/seg-torch)
@@ -269,3 +283,5 @@ If you find this code useful, please consider the following BibTeX entry.
   year =         {2020}
 }
 ```
+
+
