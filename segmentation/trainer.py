@@ -93,7 +93,7 @@ class Trainer(object):
                 self.scheduler.step()
 
             # model checkpoints
-            if epoch%self.check_point_step == 0:
+            if epoch%self.check_point_step == 0 and epoch != 0:
                 self.logger.save_model_and_optimizer(self.model,
                                                      self.optim,
                                                      'epoch_{}'.format(epoch))

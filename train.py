@@ -6,19 +6,28 @@ from segmentation.trainer import Trainer
 from segmentation.predict import *
 from segmentation.models import all_models
 from util.logger import Logger
+import argparse
 
 train_images = r'../datasets/images/train'
 test_images = r'../datasets/images/test'
 train_labled = r'../datasets/labeled/train'
 test_labeled = r'../datasets/labeled/test'
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--model_name", help="Choose model", default="unet_resnet152")
+parser.add_argument("--batch_size", help="training batch size", default=4)
+parser.add_argument("--num_class", help="how many class you segment", default=4)
+parser.add_argument("--epoch", help="how many epoch you want for training", default=100)
+parser.add_argument("--image_size", help="minimum of image width", default=200)
+args = parser.parse_args()
+
 if __name__ == '__main__':
-    model_name = "unet_resnet152"
+    model_name = args.model_name
     device = 'cuda'
-    batch_size = 4
-    n_classes = 4
-    num_epochs = 100
-    image_axis_minimum_size = 200
+    batch_size = args.batch_size
+    n_classes = args.num_class
+    num_epochs = args.epoch
+    image_axis_minimum_size = args.image_size
     pretrained = True
     fixed_feature = False
 
