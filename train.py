@@ -17,7 +17,7 @@ if __name__ == '__main__':
     device = 'cuda'
     batch_size = 4
     n_classes = 4
-    num_epochs = 10
+    num_epochs = 100
     image_axis_minimum_size = 200
     pretrained = True
     fixed_feature = False
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     ### Train
     #scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
-    check_point_stride = 30
+    check_point_stride = 90
     trainer = Trainer(model, optimizer, logger, num_epochs, train_loader, test_loader, check_point_epoch_stride=check_point_stride)
     trainer.train()
 
