@@ -76,5 +76,5 @@ if __name__ == '__main__':
 
 
     #### Writing the predict result.
-    predict(model, r'../datasets/input.png',
-             r'../datasets/output.png')
+    predict(model, r'../datasets/predict/input.png',
+             r'../datasets/predict/output.png')
